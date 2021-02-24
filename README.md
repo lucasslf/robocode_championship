@@ -1,2 +1,2 @@
 # robocode_championship
-A project to practice difference concepts
+A project to practice different concepts
