@@ -1,5 +1,6 @@
 from datetime import datetime
 from dataclasses import dataclass
+from logging import getLogger
 from typing import Optional
 from uuid import UUID, uuid4
 
@@ -39,10 +40,12 @@ class BattleEvent:
             championship_id=UUID(message['championship_id']),
             robot_1=UUID(message['robot_1']),
             robot_2=UUID(message['robot_2']),
+            battle_result_robot_1=message[
+                'battle_result_robot_1'] if 'battle_result_robot_1' in message else None,
+            battle_result_robot_2=message[
+                'battle_result_robot_1'] if 'battle_result_robot_2' in message else None,
             created_at=datetime.fromisoformat(message['created_at']),
             event=message['event'],
-            battle_result_robot_1=message['battle_result_robot_1'] if 'battle_result_robot_1' in message else None,
-            battle_result_robot_2=message['battle_result_robot_1'] if 'battle_result_robot_2' in message else None,
         )
 
 
@@ -126,5 +129,5 @@ def decode_message(message):
             return BattleEvent.decode(message)
         elif 'Championship' in message['event']:
             return ChampionshipEvent.decode(message)
-    except:
-        pass
+    except Exception as ex:
+        getLogger(__name__).error(ex)
