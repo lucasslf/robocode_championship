@@ -11,6 +11,8 @@ class BattleEvent:
     championship_id: UUID
     robot_1: UUID
     robot_2: UUID
+    battle_result_robot_1: Optional[dict]
+    battle_result_robot_2: Optional[dict]
     created_at: datetime
     event: str
 
@@ -23,6 +25,8 @@ class BattleEvent:
             championship_id=championship_id,
             robot_1=robot_1,
             robot_2=robot_2,
+            battle_result_robot_1=None,
+            battle_result_robot_2=None,
             created_at=datetime.utcnow(),
             event='BattleCreated',
         )
@@ -37,6 +41,8 @@ class BattleEvent:
             robot_2=UUID(message['robot_2']),
             created_at=datetime.fromisoformat(message['created_at']),
             event=message['event'],
+            battle_result_robot_1=message['battle_result_robot_1'] if 'battle_result_robot_1' in message else None,
+            battle_result_robot_2=message['battle_result_robot_1'] if 'battle_result_robot_2' in message else None,
         )
 
 
@@ -112,3 +118,13 @@ class ChampionshipEvent:
             created_at=datetime.fromisoformat(message['created_at']),
             event=message['event'],
         )
+
+
+def decode_message(message):
+    try:
+        if 'Battle' in message['event']:
+            return BattleEvent.decode(message)
+        elif 'Championship' in message['event']:
+            return ChampionshipEvent.decode(message)
+    except:
+        pass

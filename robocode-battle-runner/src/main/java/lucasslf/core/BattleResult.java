@@ -30,18 +30,18 @@ public class BattleResult {
 
     @Override
     public String toString() {
-        return "BattleResult{" +
-                "battleId=" + battleId +
-                ", robotName=" + robotName +
-                ", score=" + score +
-                ", survival=" + survival +
-                ", survivalBonus=" + survivalBonus +
-                ", bulletDamage=" + bulletDamage +
-                ", ramDamageTimes2=" + ramDamageTimes2 +
-                ", ramBonus=" + ramBonus +
-                ", firsts=" + firsts +
-                ", seconds=" + seconds +
-                '}';
+        return "{\"BattleResult\":{"
+                + "\"battleId\":\"" + battleId + "\""
+                + ", \"robotName\":\"" + robotName + "\""
+                + ", \"score\":\"" + score + "\""
+                + ", \"survival\":\"" + survival + "\""
+                + ", \"survivalBonus\":\"" + survivalBonus + "\""
+                + ", \"bulletDamage\":\"" + bulletDamage + "\""
+                + ", \"ramDamageTimes2\":\"" + ramDamageTimes2 + "\""
+                + ", \"ramBonus\":\"" + ramBonus + "\""
+                + ", \"firsts\":\"" + firsts + "\""
+                + ", \"seconds\":\"" + seconds + "\""
+                + "}}";
     }
 
     public UUID getBattleId() {

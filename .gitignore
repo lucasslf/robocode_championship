@@ -1,2 +1,4 @@
 /battle-service/.idea/
 /.idea/
+/battle-service/target/
+**/__pycache__

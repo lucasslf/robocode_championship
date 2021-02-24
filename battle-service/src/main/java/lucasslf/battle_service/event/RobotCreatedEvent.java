@@ -16,17 +16,6 @@ public class RobotCreatedEvent {
         this.robotURL = robotURL;
     }
 
-    @Override
-    public String toString() {
-        return "RobotCreatedEvent{" +
-                "id=" + id +
-                ", robotId=" + robotId +
-                ", robotName='" + robotName + '\'' +
-                ", robotURL='" + robotURL + '\'' +
-                ", event='" + event + '\'' +
-                '}';
-    }
-
     public UUID getId() {
         return id;
     }

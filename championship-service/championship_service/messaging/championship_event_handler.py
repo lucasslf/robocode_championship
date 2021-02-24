@@ -1,7 +1,7 @@
 import logging
 import threading
 
-from championship_service.data.events import ChampionshipEvent, BattleEvent
+from championship_service.data.events import ChampionshipEvent, BattleEvent, decode_message
 
 logger = logging.getLogger(__name__)
 
@@ -20,9 +20,10 @@ class ChampionshipKafkaListener(threading.Thread):
         for message in self._consumer:
             message = message.value
             logger.info(f'Championship event received {message}')
-            event = ChampionshipEvent.decode(message)
-            with self._app.app_context():
-                self._handle_event(event)
+            event = decode_message(message)
+            if event:
+                with self._app.app_context():
+                    self._handle_event(event)
     
     def _handle_event(self, event: ChampionshipEvent):
         logger.info(f'Handling {event}')
@@ -35,6 +36,10 @@ class ChampionshipKafkaListener(threading.Thread):
                     robot_2=pair[1],
                 )
                 self._producer.send(battle_created)
+        if 'BattleFinished' == event.event:
+            logger.info('-----------------battle result --------------')
+            logger.info(event)
+            logger.info('---------------------------------------------')
 
 
 def _get_pairings(robots):

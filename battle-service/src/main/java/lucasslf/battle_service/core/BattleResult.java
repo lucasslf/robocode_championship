@@ -1,24 +1,26 @@
 package lucasslf.battle_service.core;
 
-import java.util.UUID;
 
 public class BattleResult {
 
-    private final UUID battleId;
-    private final UUID robotId;
-    private final int score;
-    private final int survival;
-    private final int survivalBonus;
-    private final int bulletDamage;
-    private final int ramDamageTimes2;
-    private final int ramBonus;
-    private final int firsts;
-    private final int seconds;
-    private final int ranking;
+    private  String battleId;
+    private  String robotName;
+    private  int score;
+    private  int survival;
+    private  int survivalBonus;
+    private  int bulletDamage;
+    private  int ramDamageTimes2;
+    private  int ramBonus;
+    private  int firsts;
+    private  int seconds;
 
-    public BattleResult(UUID battleId, UUID robotId, int score, int survival, int survivalBonus, int bulletDamage, int ramDamageTimes2, int ramBonus, int firsts, int seconds, int ranking) {
+    public BattleResult(){
+
+    }
+
+    public BattleResult(String battleId, String robotName, int score, int survival, int survivalBonus, int bulletDamage, int ramDamageTimes2, int ramBonus, int firsts, int seconds) {
         this.battleId = battleId;
-        this.robotId = robotId;
+        this.robotName = robotName;
         this.score = score;
         this.survival = survival;
         this.survivalBonus = survivalBonus;
@@ -27,32 +29,30 @@ public class BattleResult {
         this.ramBonus = ramBonus;
         this.firsts = firsts;
         this.seconds = seconds;
-        this.ranking = ranking;
     }
 
     @Override
     public String toString() {
-        return "BattleResult{" +
-                "battleId=" + battleId +
-                ", robotId=" + robotId +
-                ", score=" + score +
-                ", survival=" + survival +
-                ", survivalBonus=" + survivalBonus +
-                ", bulletDamage=" + bulletDamage +
-                ", ramDamageTimes2=" + ramDamageTimes2 +
-                ", ramBonus=" + ramBonus +
-                ", firsts=" + firsts +
-                ", seconds=" + seconds +
-                ", ranking=" + ranking +
-                '}';
+        return "{"
+                + "\"battle_id\":\"" + battleId + "\""
+                + ", \"robot_name\":\"" + robotName + "\""
+                + ", \"score\":\"" + score + "\""
+                + ", \"survival\":\"" + survival + "\""
+                + ", \"survival_bonus\":\"" + survivalBonus + "\""
+                + ", \"bullet_damage\":\"" + bulletDamage + "\""
+                + ", \"ram_damage\":\"" + ramDamageTimes2 + "\""
+                + ", \"ram_bonus\":\"" + ramBonus + "\""
+                + ", \"firsts\":\"" + firsts + "\""
+                + ", \"seconds\":\"" + seconds + "\""
+                + "}";
     }
 
-    public UUID getBattleId() {
+    public String getBattleId() {
         return battleId;
     }
 
-    public UUID getRobotId() {
-        return robotId;
+    public String getRobotName() {
+        return robotName;
     }
 
     public int getScore() {

@@ -19,17 +19,6 @@ public class BattleCreatedEvent {
         this.robot2 = robot2;
     }
 
-    @Override
-    public String toString() {
-        return "BattleCreatedEvent{" +
-                "id=" + id +
-                ", battleId=" + battleId +
-                ", championshipId=" + championshipId +
-                ", robot1=" + robot1 +
-                ", robot2=" + robot2 +
-                ", event='" + event + '\'' +
-                '}';
-    }
 
     public UUID getId() {
         return id;
