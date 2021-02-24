@@ -1,0 +1,14 @@
+logging:
+  level:
+    org.springframework.web: ERROR
+    lucasslf: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+spring:
+  kafka:
+    bootstrap-servers: kafka:9092
+  data:
+    mongodb:
+      host: battle-service-mongo
+      databaseName: battle-service

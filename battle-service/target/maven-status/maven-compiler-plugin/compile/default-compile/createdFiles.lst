@@ -1,0 +1,15 @@
+lucasslf/battle_service/service/BattleService.class
+lucasslf/battle_service/infra/KafkaConsumer$1.class
+lucasslf/battle_service/core/BattleResult.class
+lucasslf/battle_service/BattleServiceApplication.class
+lucasslf/battle_service/infra/KafkaConsumer.class
+lucasslf/battle_service/domain/Robot.class
+lucasslf/battle_service/ConsoleController.class
+lucasslf/battle_service/event/RobotCreatedEvent.class
+lucasslf/battle_service/core/BattleManager.class
+lucasslf/battle_service/infra/KafkaConsumer$2.class
+lucasslf/battle_service/infra/RobotDownloader.class
+lucasslf/battle_service/domain/Battle.class
+lucasslf/battle_service/service/RobotService.class
+lucasslf/battle_service/domain/RobotRepository.class
+lucasslf/battle_service/event/BattleCreatedEvent.class

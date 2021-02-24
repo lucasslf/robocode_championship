@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>lucasslf</groupId>
+    <artifactId>robocode-battle-runner</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.picocontainer</groupId>
+            <artifactId>picocontainer</artifactId>
+            <version>2.14.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.robocode</groupId>
+            <artifactId>codesize</artifactId>
+            <version>1.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.robocode</groupId>
+            <artifactId>robocode</artifactId>
+            <version>1.9.3.9</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/robocode.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.robocode</groupId>
+            <artifactId>robocode.battle</artifactId>
+            <version>1.9.3.9</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/robocode.battle-1.9.3.9.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.robocode</groupId>
+            <artifactId>robocode.core</artifactId>
+            <version>1.9.3.9</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/robocode.core-1.9.3.9.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.robocode</groupId>
+            <artifactId>robocode.repository</artifactId>
+            <version>1.9.3.9</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/robocode.repository-1.9.3.9.jar</systemPath>
+        </dependency>
+    </dependencies>
+</project>
