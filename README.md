@@ -30,8 +30,9 @@ Responsible for Championships capabilities.
 Next steps:
 
 - Add current state projection stored in mongodb
-- Detect the end of the championship when last battle finishes
-- Add queries for chapionship results and statistics 
+- Trigger championship finished event when last battle finishes
+- Add queries for chapionship results and statistics
+- Add battle state projection stored in mongodb 
 
 **battle-service:**
 
