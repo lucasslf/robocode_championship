@@ -48,6 +48,8 @@ Next steps:
 
 ## robocode-battle-runner
 
+Pure Java - Robocode
+
 Wrapper around Robocode, it is necessary because Robocode needs to run as a stand alone process due to it having its own classloader and it not working well with spring-boot's class loader.
 
 ---
