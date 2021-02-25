@@ -4,7 +4,7 @@ This is a side project to practice different concepts. It is a system to manage 
 Currently only backend. 
 
 
-## robot-service:
+## robot-service
 
 API - Basic CRUD - Relational DB - Kafka - Python
 
@@ -17,7 +17,7 @@ Next steps:
 - Add ELO Rating
 
 
-## championship-service:
+## championship-service
 
 API - Event sourcing - Kafka - Python
 
@@ -34,7 +34,7 @@ Next steps:
 - Add queries for chapionship results and statistics
 - Add battle state projection stored in mongodb 
 
-## battle-service:
+## battle-service
 
 Event driven - Document DB - Kafka - Spring/spring-boot - Java
 
@@ -46,7 +46,7 @@ Next steps:
 - Error handling
 - Send robot downloaded event
 
-## robocode-battle-runner:
+## robocode-battle-runner
 
 Wrapper around Robocode, it is necessary because Robocode needs to run as a stand alone process due to it having its own classloader and it not working well with spring-boot's class loader.
 
