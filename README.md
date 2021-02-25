@@ -1,5 +1,5 @@
 # robocode_championship
-This is a side project to practice different concepts. It is a system to manage Robocode tournments. 
+This is a side project to practice different concepts. It is a system to manage Robocode tournaments. 
 
 Currently only backend. 
 
