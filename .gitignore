@@ -2,3 +2,4 @@
 /.idea/
 /battle-service/target/
 **/__pycache__
+/battle-service/mongo/

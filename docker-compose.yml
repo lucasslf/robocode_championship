@@ -47,6 +47,8 @@ services:
         image: mongo
         ports:
             - "27017:27017"
+        volumes:
+            - ./battle-service/mongo/data:/data/db
 
     robot-service:
         image: lucasslf/robot-service:latest

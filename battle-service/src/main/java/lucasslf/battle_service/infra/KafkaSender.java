@@ -12,6 +12,7 @@ public class KafkaSender {
     private KafkaTemplate<String, String> kafkaTemplate;
 
     public void sendBattleFinishedEvent(BattleFinishedEvent event) {
+        System.out.println("Sending Battle Finished event: "+event.toString());
         kafkaTemplate.send("robot-championship.championships", event.toString());
     }
 }

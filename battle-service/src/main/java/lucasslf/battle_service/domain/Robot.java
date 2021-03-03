@@ -31,6 +31,10 @@ public class Robot {
         return url.substring(url.lastIndexOf('/')+1);
     }
 
+    public String getRobocodeName(){
+        return getFileName().substring(0, getFileName().indexOf('_'));
+    }
+
     @Override
     public String toString() {
         return "Robot{" +

@@ -4,9 +4,9 @@ import lucasslf.battle_service.core.BattleResult;
 
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.Temporal;
 import java.util.UUID;
 
 public class BattleFinishedEvent {
@@ -19,7 +19,7 @@ public class BattleFinishedEvent {
     private final BattleResult robot1BattleResult;
     private final BattleResult robot2BattleResult;
     private final String event = "BattleFinished";
-    private final ZonedDateTime createdAt;
+    private final Temporal createdAt;
 
     public BattleFinishedEvent(UUID championshipId, UUID robot1, UUID robot2, BattleResult robot1BattleResult, BattleResult robot2BattleResult) {
         this.id = UUID.randomUUID();
@@ -29,7 +29,7 @@ public class BattleFinishedEvent {
         this.robot2 = robot2;
         this.robot1BattleResult = robot1BattleResult;
         this.robot2BattleResult = robot2BattleResult;
-        this.createdAt = LocalDateTime.now().atZone(ZoneId.of("UTC"));
+        this.createdAt = LocalDateTime.now();
     }
 
     public String toString() {
@@ -46,4 +46,5 @@ public class BattleFinishedEvent {
                 + ", \"created_at\":\"" + DateTimeFormatter.ISO_DATE_TIME.format(createdAt) + "\""
                 + "}";
     }
+
 }

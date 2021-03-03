@@ -15,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Component
@@ -29,12 +30,17 @@ public class BattleManager {
 
     public void runBattle(Battle battle){
         System.out.println("Preparing battle "+battle);
-        List<Robot> robots = robotRepository.findAll();
+        List<UUID> robot_ids = new ArrayList<UUID>(){{
+            add(battle.getRobot1()); add(battle.getRobot2());}};
 
-        Map<UUID, String> robotMap = robots.stream().collect(Collectors.toMap(robot -> robot.getId(), robot -> robot.getFileName().substring(0, robot.getFileName().indexOf('_'))));
+        Iterable<Robot> robots = robotRepository.findAllById(robot_ids);
+        Map<UUID, Robot> robotMap = new HashMap<UUID, Robot>();
+        robots.forEach(robot -> robotMap.put(robot.getId(),robot));
         try {
             Runtime rt = Runtime.getRuntime();
-            String[] commands = {"java", "-cp", "robocode_libs/*", "StandAloneRobocodeBattleRunner", battle.getId().toString(), robotMap.get(battle.getRobot1()), robotMap.get(battle.getRobot2()) };
+            String[] commands = {
+                    "java", "-cp", "robocode_libs/*", "StandAloneRobocodeBattleRunner", battle.getId().toString(), robotMap.get(battle.getRobot1()).getRobocodeName(), robotMap.get(battle.getRobot2()).getRobocodeName()
+            };
             System.out.println("Command: "+ Arrays.stream(commands).reduce("", (command, element) -> command+" "+element));
             System.out.println("Starting");
             Process battleProcess = rt.exec(commands);
@@ -58,8 +64,9 @@ public class BattleManager {
                             battleResults.put(mapResult.get("BattleResult").getRobotName(), mapResult.get("BattleResult"));
                         }
                     }
-                    String robot1Name = robotMap.entrySet().stream().filter(e -> e.getKey().equals(battle.getRobot1())).findFirst().get().getValue();
-                    String robot2Name = robotMap.entrySet().stream().filter(e -> e.getKey().equals(battle.getRobot2())).findFirst().get().getValue();
+                    String robot1Name = robotMap.get(battle.getRobot1()).getRobocodeName();
+                    String robot2Name = robotMap.get(battle.getRobot2()).getRobocodeName();
+
                     if(battleResults.size() == 2) {
 
                         BattleFinishedEvent event = new BattleFinishedEvent(battle.getChampionshipId(), battle.getRobot1(), battle.getRobot2(), battleResults.get(robot1Name), battleResults.get(robot2Name) );
